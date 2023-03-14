@@ -1,34 +1,30 @@
-const sliderItem = document.querySelectorAll(".slider__item");
-const prev = document.querySelector(".slider__arrow_prev");
-const next = document.querySelector(".slider__arrow_next");
-let slideNumber = 0;
+let sliderItem = Array.from(document.querySelectorAll(".slider__item"));
+let prev = document.querySelector('.slider__arrow_prev');
+let next = document.querySelector('.slider__arrow_next');
+
+
+const remove = () => {
+    sliderItem.forEach(el => el.classList.remove('slider__item_active'));
+}
+
+const add = (i) => {
+    sliderItem[i].classList.add('slider__item_active');
+}
 
 next.onclick = () => {
-    sliderItem[slideNumber].classList.remove("slider__item_active");
-        if (slideNumber == sliderItem.length - 1) {
-            slideNumber = 0;
-        } else {
-            slideNumber++;
-        }
-        sliderItem[slideNumber].classList.add("slider__item_active");
-    
-    //     slideNumber++
-    // if (slideNumber >= sliderItem.length) {
-    //     sliderItem[slideNumber - 1].classList.remove("slider__item_active");
-    //     slideNumber = 0;
-    //     sliderItem[slideNumber].classList.add("slider__item_active");
-    // } else {
-    //     sliderItem[slideNumber - 1].classList.remove("slider__item_active");
-    //     sliderItem[slideNumber].classList.add("slider__item_active");
-    // }
+    let showItem = sliderItem.findIndex(el => el.classList.contains('slider__item_active'))
+    if (showItem == sliderItem.length - 1) {
+        showItem = -1;
+    }
+    remove();
+    add(showItem + 1);
 }
 
 prev.onclick = () => {
-    sliderItem[slideNumber].classList.remove("slider__item_active");
-        if (slideNumber == 0) {
-            slideNumber = sliderItem.length - 1;
-        } else {
-            slideNumber--;
-        }
-    sliderItem[slideNumber].classList.add("slider__item_active");
+    let showItem = sliderItem.findIndex(el => el.classList.contains('slider__item_active'))
+    if (showItem <= 0) {
+        showItem = sliderItem.length;
+    }
+    remove();
+    add(showItem - 1);
 }
