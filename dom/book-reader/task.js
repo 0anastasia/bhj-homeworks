@@ -1,12 +1,16 @@
 const fontSize = Array.from(document.querySelectorAll('.font-size'));
 const book = document.querySelectorAll('.book');
 
+let removeFS = () => {
+    fontSize.forEach(remove => {
+        remove.classList.remove('font-size_active');
+    });
+} 
+
 fontSize.forEach(el => {
-    el.addEventListener('click', () => {
+    el.onclick = () => {
         if (el.classList.contains('font-size_small')) {
-            fontSize.forEach(remove => {
-                remove.classList.remove('font-size_active');
-            });
+            removeFS();
             el.classList.add('font-size_active');
             book.classList.add('book_fs-small');
 
@@ -14,14 +18,12 @@ fontSize.forEach(el => {
         }
 
         if (el.classList.contains('font-size_big')) {
-            fontSize.forEach(remove => {
-                remove.classList.remove('font-size_active');
-            });
+            removeFS();
             el.classList.add('font-size_active');
             book.classList.add('book_fs-big');
 
             return false;
         }
-    });
+    }
     
 });
