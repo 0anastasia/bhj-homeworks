@@ -1,13 +1,12 @@
-let reveal = document.querySelectorAll('.reveal');
+const reveal = document.querySelectorAll('.reveal');
 
 window.onscroll = () => {
     reveal.forEach((el) => {
-       let {top, bottom} = el.getBoundingClientRect();
-       
-       if (bottom < window.innerHeight && top > 0) {
-            el.classList.add('reveal_active')
-       } else {
-            el.classList.remove('reveal_active');
-       }
+     const{innerHeight} = window;
+     const{top} = el.getBoundingClientRect(); 
+
+     let active = top < innerHeight && top > 0
+          ? el.classList.add('reveal_active') 
+          : el.classList.remove('reveal_active');
     })
 }
