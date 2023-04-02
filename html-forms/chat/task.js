@@ -1,11 +1,10 @@
-const chatWidget = document.querySelector(".chat-widget");
-chatWidget.addEventListener("click", () => {
-    chatWidget.classList.add("chat-widget_active")
+const chatWidget = document.querySelector('.chat-widget');
+chatWidget.addEventListener('click', () => {
+    chatWidget.classList.add('chat-widget_active')
 })
 
-let chatWidgetInput = document.getElementById("chat-widget__input");
-
-const messages = document.querySelector( ".chat-widget__messages");
+let chatWidgetInput = document.getElementById('chat-widget__input');
+const messages = document.querySelector( '.chat-widget__messages');
 
 let messagesFromRobot = [
     "Напишите в следующей жизни.", 
@@ -16,7 +15,7 @@ let messagesFromRobot = [
     "Мы ничего не будем вам продавать!"
 ];
 
-chatWidgetInput.addEventListener("keydown", (event) => {
+chatWidgetInput.addEventListener('keydown', (event) => {
     if (event.key === "Enter" && chatWidgetInput.value.trim().length > 0) {
         messages.innerHTML += `
         <div class="message message_client">
