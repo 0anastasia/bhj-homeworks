@@ -30,7 +30,7 @@ chatWidgetInput.addEventListener('keydown', (event) => {
           <div class="message">
             <div class="message__time">${new Date().getHours()}:${new Date().getMinutes()}</div>
             <div class="message__text">
-              ${messagesFromRobot[Math.floor(Math.random() * (messagesFromRobot.length + 1))]}
+              ${messagesFromRobot[Math.floor(Math.random() * messagesFromRobot.length)]}
             </div>
           </div>
         `;
