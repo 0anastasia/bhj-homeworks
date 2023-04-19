@@ -20,9 +20,10 @@ tasksList.addEventListener("click", e => {
     }
 });
 
-let tasksAddButton = () => {tasksAdd.addEventListener('click', (event) => {
+let tasksAddButton = () => {tasksAdd.addEventListener('click', e => {
+    e.preventDefault();
     if (taskInput.value.trim().length > 0) {
-        event.preventDefault();
+        e.preventDefault();
         addingTask() 
     }
     remove();
