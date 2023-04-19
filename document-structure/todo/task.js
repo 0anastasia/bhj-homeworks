@@ -14,16 +14,11 @@ let addingTask = () => {
         taskInput.value = '';     
 }
 
-let remove = () => {
-  let taskRemove = Array.from(tasksList.children);
-    taskRemove.forEach(el => {el.lastElementChild.addEventListener('click', e => {
-        e.preventDefault();
-        if(taskRemove.length > 0) {
-            e.target.closest('.task').remove()
-        }
-        
-    })})
-}
+tasksList.addEventListener("click", e => {
+    if (e.target.classList.contains("task__remove")) {
+      e.target.parentElement.remove();
+    }
+});
 
 let tasksAddButton = () => {tasksAdd.addEventListener('click', (event) => {
     if (taskInput.value.trim().length > 0) {
