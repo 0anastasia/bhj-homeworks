@@ -23,10 +23,8 @@ tasksList.addEventListener("click", e => {
 let tasksAddButton = () => {tasksAdd.addEventListener('click', e => {
     e.preventDefault();
     if (taskInput.value.trim().length > 0) {
-//         e.preventDefault();
         addingTask() 
     }
-    remove();
   })
 }
 tasksAddButton();
